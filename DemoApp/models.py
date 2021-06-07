@@ -36,12 +36,4 @@ class Students(models.Model):
     def __str__(self):
         return self.sid
 
-''' 
 
-    CRUD operations 
-    C==> Create
-    R==> Retrieve
-    U==> Update
-    D==> Delete
-
-'''
