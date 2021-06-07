@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <form method="POST" action="/StudentSubmission/">
+            {% csrf_token %}
+        <input type="text" name="name" placeholder="Studentname">
+        <input type="text" name="id" placeholder="Studentid">
+        <select id="depts" name="dept">
+            <option value="CSE">CSE</option>
+            <option value="IT">IT</option>
+            <option value="EEE">EEE</option>
+            <option value="ECE">ECE</option>
+            <option value="Mechanical">Mechanical</option>
+          </select>
+        <label for="year">Year</label>
+        <select id="year" name="year">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        <input type="submit" >
+        </form>
+    </body>
+</html>
