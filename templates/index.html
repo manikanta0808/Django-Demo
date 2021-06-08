@@ -7,11 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    <form method="POST" action="/FacultySubmission/">
+    <form method="POST" action="/sum/">
         {% csrf_token %}
-        <input type="text" name="faculty" placeholder="Facultyname">
+        <!-- <input type="text" name="faculty" placeholder="Facultyname">
         <input type="text" name="dept" placeholder="Department">
-        <input type="submit" >
+        <input type="submit" > -->
+
+        <input type="text" name = "a" placeholder="firstname">
+        <input type="text" name = "b" placeholder="lastname">
+        <input type="submit">
     </form>
 </body>
 </html>

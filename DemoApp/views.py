@@ -1,11 +1,27 @@
 from django.shortcuts import render
 from .models import Faculty, Department, Work, Students
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
 
 # cross site request forgery
 # Create your views here.
 def indexView(request):
     return render(request, 'index.html')
+
+
+def sum(request):
+    if request.method == 'POST':
+        
+        firstname = request.POST['a']
+        lastname = request.POST['b']
+        
+        return render(request,'result.html',{
+            'first' : firstname,
+            'last' : lastname
+        })
+    
+
+
 
 
 @csrf_protect
