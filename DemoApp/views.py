@@ -6,7 +6,10 @@ from django.views.decorators.csrf import csrf_protect
 # cross site request forgery
 # Create your views here.
 def indexView(request):
-    return render(request, 'index.html')
+    return render(request, 'temp.html')
+
+def blog(request):
+    return render(request, 'blog.html')
 
 
 def sum(request):
@@ -19,6 +22,12 @@ def sum(request):
             'first' : firstname,
             'last' : lastname
         })
+
+    elif request.method == "GET":
+        pass 
+
+    elif request.method == "PUT":
+        passaction="/sum/"
     
 
 
@@ -62,7 +71,31 @@ def FacultySubmission(request):
 
         except Department.DoesNotExist:
             print("Entered Department don't exist")
-
-        
+            
     return render(request, 'index.html')
 
+
+
+
+
+'''    
+        
+        Faculty                     Department
+       
+    fid      name               did             name
+    1        Sayed               1              CSE
+    2        Mani                2               IT
+    3        Uday                3              ECE
+    4        Ramesh              4              EEE
+    5        Rajesh              5              MEC
+
+        WORKS
+
+        
+    fid     did
+    1       1
+    1       3
+    5       5
+    
+
+'''

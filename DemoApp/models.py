@@ -22,7 +22,7 @@ class Faculty(models.Model):
 
 class Work(models.Model):
     fid = models.ForeignKey(Faculty, on_delete=models.CASCADE)
-    did = models.ForeignKey(Department, on_delete=SET_NULL, null=True)
+    did = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.fid} works in {self.did}'
@@ -37,3 +37,20 @@ class Students(models.Model):
         return self.sid
 
 
+class SecurityGuard(models.Model):
+    sid = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=30)  
+
+    def __str__(self):
+        return self.name
+
+
+'''
+        WORKS
+
+    fid     did
+    1       1
+    1       3
+    1       NULL
+
+'''
