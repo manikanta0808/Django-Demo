@@ -45,6 +45,15 @@ class SecurityGuard(models.Model):
         return self.name
 
 
+class BlogModel(models.Model):
+    mid = models.IntegerField(primary_key=True)
+    author  = models.CharField(max_length=35)
+    content = models.TextField()
+
+    def __str__(self):
+        return self.author
+
+
 '''
         WORKS
 

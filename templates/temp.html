@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <form id = "formid" method="POST" action="/blog/" onsubmit="return(isEmpty());" name="formname">
+    <form id = "formid" method="POST" action="/blogView/" onsubmit="return(isEmpty());" name="formname">
         {% csrf_token %}
         <input type="text" name = "name"><br><br>
         <input type="number" name = "age">
@@ -16,7 +16,7 @@
     <script type="text/javascript">
         function isEmpty(){
             var val = document.formname.name.value;
-            var age = document.formname.age.value;;
+            var age = document.formname.age.value;
             if(val === ""){
                 alert("You are trying to submit empty form");
                 document.formname.name.focus();

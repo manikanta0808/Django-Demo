@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Faculty, Department, Work, Students
+from .models import Faculty, Department, Work, Students, BlogModel
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views.decorators.csrf import csrf_protect
 
@@ -8,8 +8,8 @@ from django.views.decorators.csrf import csrf_protect
 def indexView(request):
     return render(request, 'temp.html')
 
-def blog(request):
-    return render(request, 'blog.html')
+# def blog(request):
+#     return render(request, 'blog.html')
 
 
 def sum(request):
@@ -29,9 +29,6 @@ def sum(request):
     elif request.method == "PUT":
         passaction="/sum/"
     
-
-
-
 
 @csrf_protect
 def StudentSubmission(request):
@@ -73,9 +70,27 @@ def FacultySubmission(request):
             print("Entered Department don't exist")
             
     return render(request, 'index.html')
+3
 
+def convert_to_json(obj):
+    return {
+        'author' : obj.author,
+        'content' : obj.content
+    }
 
-
+def blogView(request):
+    try:
+        content = BlogModel.objects.all()
+        contents = []
+        for cont in content:
+            contents.append(convert_to_json(cont))
+        print(contents)
+        return render(request, 'blog.html',{
+            'content' : contents
+        })
+    except BlogModel.DoesNotExist:
+        print('No content exist')
+    
 
 
 '''    
@@ -97,5 +112,11 @@ def FacultySubmission(request):
     1       3
     5       5
     
+    {
+        'mid' : 1,
+        'author' : 'john',
+        'content' : 'Hi every one'
+    }
+    json.stringify()
 
 '''
