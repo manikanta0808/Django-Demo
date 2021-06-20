@@ -23,13 +23,10 @@ def sum(request):
             'last' : lastname
         })
 
-    elif request.method == "GET":
-        pass 
-
-    elif request.method == "PUT":
-        passaction="/sum/"
     
-
+def sumView(request):
+    return render(request, 'index.html')
+    
 @csrf_protect
 def StudentSubmission(request):
     if request.method == 'POST':
@@ -70,7 +67,7 @@ def FacultySubmission(request):
             print("Entered Department don't exist")
             
     return render(request, 'index.html')
-3
+
 
 def convert_to_json(obj):
     return {
@@ -79,6 +76,11 @@ def convert_to_json(obj):
     }
 
 def blogView(request):
+    if request.method == "POST":
+        author_ = request.POST['author']
+        content_ = request.POST['content']
+        obj = BlogModel(author = author_, content = content_)
+        obj.save()
     try:
         content = BlogModel.objects.all()
         contents = []
@@ -118,5 +120,17 @@ def blogView(request):
         'content' : 'Hi every one'
     }
     json.stringify()
+
+    if request.method == "POST":
+        author_ = request.POST['author']
+        content_ = request.POST['content']
+        obj = BlogModel(author = author_,content = content_)
+        obj.save()
+
+    <script>
+        if ( window.history.replaceState ) {
+            window.history.replaceState( null, null, window.location.href );
+          }
+    </script>
 
 '''

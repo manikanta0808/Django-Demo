@@ -55,11 +55,13 @@ class BlogModel(models.Model):
 
 
 '''
-        WORKS
+                BlogModel
 
-    fid     did
-    1       1
-    1       3
-    1       NULL
+            mid     author     content
+            1       Sayed       Hi there , I'm new here.
+            2       Mani        Hello Sayed, Good to see you here.
 
+            render(request, 'template', {
+
+            }, context_type = 'json')
 '''
